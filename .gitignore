@@ -20,3 +20,7 @@ build/
 *.dSYM
 *.dSYM.zip
 *.ipa
+
+# Python venv
+.venv/
+
