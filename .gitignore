@@ -24,3 +24,7 @@ build/
 # Python venv
 .venv/
 
+
+# Python / ML artifacts
+.venv/
+*.pt
