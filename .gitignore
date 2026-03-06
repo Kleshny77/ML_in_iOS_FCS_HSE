@@ -23,8 +23,8 @@ build/
 
 # Python venv
 .venv/
-
+.venv_food/
 
 # Python / ML artifacts
-.venv/
+.hf_cache/
 *.pt
