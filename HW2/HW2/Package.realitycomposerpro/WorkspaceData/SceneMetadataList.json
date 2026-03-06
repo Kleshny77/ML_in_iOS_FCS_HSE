@@ -1,0 +1,62 @@
+{
+  "3C3C116C-7AC3-45BA-9253-13F62F548EFD" : {
+    "objectMetadataList" : [
+      [
+        "3C3C116C-7AC3-45BA-9253-13F62F548EFD",
+        "Root",
+        "______________2",
+        "Geometry"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "3C3C116C-7AC3-45BA-9253-13F62F548EFD",
+        "Root",
+        "SkySphere"
+      ],
+      {
+        "disallowsFraming" : true,
+        "isExpanded" : false,
+        "isLocked" : false
+      },
+      [
+        "3C3C116C-7AC3-45BA-9253-13F62F548EFD",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "3C3C116C-7AC3-45BA-9253-13F62F548EFD",
+        "Root",
+        "spin"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "3C3C116C-7AC3-45BA-9253-13F62F548EFD",
+        "Root",
+        "______________2"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "3C3C116C-7AC3-45BA-9253-13F62F548EFD",
+        "Root",
+        "______________2",
+        "Materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  }
+}

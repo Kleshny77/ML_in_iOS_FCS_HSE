@@ -1,0 +1,171 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (494.40.1)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def "______________2" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        customData = {
+            float3 rotationEulerHint = (0, 25.422327, 0)
+        }
+        references = @Новый объект 2.usdz@
+    )
+    {
+        rel material:binding = </Root/______________2/Materials/Texture> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        quatf xformOp:orient = (0.9895357, 0, 0.14428806, 0)
+        float3 xformOp:scale = (1.1694105, 1.1694106, 1.1694106)
+        float3 xformOp:translate = (-0.029349133, 0, 0.54602146)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Materials"
+        {
+            over "Texture"
+            {
+                token cullMode = "unspecified" (
+                    allowedTokens = ["unspecified", "none", "front", "back"]
+                )
+                token inputs:frame:stPrimvarName (
+                    customData = {
+                        dictionary realitykit = {
+                            float2 positionInSubgraph = (-111.5, 87.5)
+                        }
+                    }
+                )
+                token outputs:mtlx:surface.connect = </Root/______________2/Materials/Texture/PreviewSurface.outputs:out>
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/______________2/Materials/Texture/surfaceShader.outputs:surface>
+                float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (125, 110.5)
+
+                over "surfaceShader" (
+                    active = true
+                )
+                {
+                    float inputs:clearcoat = 0.9
+                    float inputs:clearcoatRoughness = 0.1
+                    color3f inputs:emissiveColor = (0, 0, 0) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:metallic = 0.8
+                    float inputs:opacity = 1
+                    float inputs:roughness = 0.1
+                }
+
+                def Shader "PreviewSurface" (
+                    active = false
+                )
+                {
+                    uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+                    token outputs:out
+                    float2 ui:nodegraph:node:pos = (-255, 105)
+                }
+            }
+        }
+
+        over "Geometry"
+        {
+            over "Mesh"
+            {
+                uniform token subdivisionScheme = "none"
+            }
+        }
+    }
+
+    def Xform "ParticleEmitter" (
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Root/______________2/Materials/Texture> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        float3 xformOp:translate = (-0.048173726, 0.12527013, 0.5942297)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "VFXEmitter"
+        {
+            token info:id = "RealityKit.VFXEmitter"
+
+            def RealityKitStruct "currentState"
+            {
+                token birthDirection = "Normal"
+                token birthLocation = "Surface"
+                token emitterShape = "Torus"
+                token spawnOccasion = "OnDeath"
+
+                def RealityKitStruct "mainEmitter"
+                {
+                    token blendMode = "Additive"
+                    float4 endColorA = (0.103327334, 0.9407023, 0, 1)
+                    token opacityOverLife = "Constant"
+                    float4 startColorA = (1, 0, 0, 1)
+                    bool useEndColor = 1
+                    bool useEndColorRange = 0
+                    bool useStartColorRange = 0
+                }
+
+                def RealityKitStruct "spawnedEmitter"
+                {
+                }
+            }
+        }
+    }
+
+    def RealityKitTimeline "spin"
+    {
+        def RealityKitTrack "Track"
+        {
+        }
+    }
+
+    def Xform "PointLight"
+    {
+        float3 xformOp:translate = (0, 0.2584809, 0.3358227)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "PointLight"
+        {
+            token info:id = "RealityKit.PointLight"
+        }
+    }
+
+    def Xform "PointLight2"
+    {
+        float3 xformOp:translate = (0, 0.2221304, 0.6700617)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "PointLight"
+        {
+            token info:id = "RealityKit.PointLight"
+        }
+    }
+
+    def Xform "SpotLight" (
+        customData = {
+            float3 rotationEulerHint = (1.255145, 0.68698096, 1.15637754e-7)
+        }
+    )
+    {
+        quatf xformOp:orient = (0.76217085, 0.55288124, 0.27260494, -0.19774845)
+        float3 xformOp:translate = (-0.0012017358, -0.33210784, 0.6588195)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "SpotLight"
+        {
+            token info:id = "RealityKit.SpotLight"
+
+            def RealityKitStruct "Shadow"
+            {
+            }
+        }
+    }
+}
+
