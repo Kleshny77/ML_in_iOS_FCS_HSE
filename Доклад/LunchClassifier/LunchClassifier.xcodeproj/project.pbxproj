@@ -10,22 +10,9 @@
 		FBF2FBCA2F1A907000CC2213 /* LunchClassifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LunchClassifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		FBF2FBD02F1A907000CC2213 /* Exceptions for "LunchClassifier" folder in "LunchClassifier" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = FBF2FBC92F1A907000CC2213 /* LunchClassifier */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FBF2FBCC2F1A907000CC2213 /* LunchClassifier */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				FBF2FBD02F1A907000CC2213 /* Exceptions for "LunchClassifier" folder in "LunchClassifier" target */,
-			);
 			path = LunchClassifier;
 			sourceTree = "<group>";
 		};
@@ -269,7 +256,6 @@
 				DEVELOPMENT_TEAM = NWMHAK8G97;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LunchClassifier/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Приложению нужна камера, чтобы сфотографировать блюдо.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Приложению нужен доступ к фото для классификации изображений еды.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -304,7 +290,6 @@
 				DEVELOPMENT_TEAM = NWMHAK8G97;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LunchClassifier/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Приложению нужна камера, чтобы сфотографировать блюдо.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Приложению нужен доступ к фото для классификации изображений еды.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

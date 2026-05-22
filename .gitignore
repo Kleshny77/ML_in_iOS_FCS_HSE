@@ -28,3 +28,15 @@ build/
 # Python / ML artifacts
 .hf_cache/
 *.pt
+
+# Create ML / generated datasets
+*.mlproj/
+Доклад/datasets/CalorieClassificationData/
+Доклад/datasets/CalorieRegressionData5k/
+Доклад/datasets/TrainingData/
+Доклад/datasets/ValidationData/
+Доклад/datasets/archive-*/
+
+# Presentations (keep only классификатор обеда.pdf)
+Доклад/Доклад ios.pdf
+Доклад/Доклад ios.pptx

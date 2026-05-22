@@ -11,12 +11,11 @@ final class CalorieRegressor {
     }
 
     private func loadModel() {
-        guard let url = Bundle.main.url(forResource: "CalorieClassifier", withExtension: "mlmodelc")
-            ?? Bundle.main.url(forResource: "CalorieClassifier", withExtension: "mlmodel") else { return }
         do {
             let config = MLModelConfiguration()
-            let mlModel = try MLModel(contentsOf: url, configuration: config)
-            visionModel = try VNCoreMLModel(for: mlModel)
+            config.computeUnits = .all
+            let coreMLModel = try CalorieClassifier(configuration: config)
+            visionModel = try VNCoreMLModel(for: coreMLModel.model)
         } catch {
             print("CalorieRegressor: модель не загружена (\(error))")
         }
@@ -39,8 +38,9 @@ final class CalorieRegressor {
                     continuation.resume(returning: nil)
                     return
                 }
-                guard let results = request.results, let first = results.first as? VNClassificationObservation,
-                      let parsed = Self.parseCalorieClass(first.identifier) else {
+                guard let results = request.results as? [VNClassificationObservation],
+                      let top = results.first,
+                      let parsed = Self.parseCalorieClass(top.identifier) else {
                     continuation.resume(returning: nil)
                     return
                 }

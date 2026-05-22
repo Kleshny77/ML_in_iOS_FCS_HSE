@@ -160,7 +160,7 @@ struct ContentView: View {
                                 Text("—")
                                     .font(.title2.weight(.bold))
                                     .foregroundStyle(.secondary)
-                                Text(showAsKnown ? "Добавьте CalorieClassifier.mlmodel" : "Калории не показываем для неизвестных блюд")
+                                Text(caloriePlaceholder(showAsKnown: showAsKnown))
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
@@ -215,6 +215,16 @@ struct ContentView: View {
                 errorMessage = "Не удалось загрузить изображение"
             }
         }
+    }
+
+    private func caloriePlaceholder(showAsKnown: Bool) -> String {
+        if !showAsKnown {
+            return "Калории не показываем для неизвестных блюд"
+        }
+        if !classifier.isCalorieModelAvailable {
+            return "Добавьте CalorieClassifier.mlmodel в проект"
+        }
+        return "CalorieClassifier не распознал калорийность на фото"
     }
 
     private func classify(image: UIImage) async {

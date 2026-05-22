@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
+from __future__ import annotations
+
 import os
 import re
 from pathlib import Path
+from typing import Optional
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 os.environ.setdefault("HF_HOME", str(SCRIPT_DIR / ".hf_cache"))
@@ -11,7 +14,7 @@ MAX_CAL = 1500
 TARGET_SIZE = (299, 299)
 
 
-def parse_total_calories(response: str) -> int | None:
+def parse_total_calories(response: str) -> Optional[int]:
     if not response:
         return None
     m = re.search(r"[Tt]otal [Cc]alories?:\s*(\d+)", response)
