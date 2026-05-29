@@ -178,37 +178,39 @@ struct ContentView: View {
                     }
                 }
                 
-                HStack {
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(gameManager.isRobotPlaying ? "🤖 Режим робота" : "👨 Режим человека")
+                VStack(spacing: 10) {
+                    HStack(spacing: 20) {
+                        Text(gameManager.isRobotPlaying ? "🤖 Робот" : "👨 Человек")
                             .font(.caption)
                             .foregroundColor(gameManager.isRobotPlaying ? .blue : .green)
-                    }
-                    
-                    Spacer()
-                    
-                    Toggle("Робот", isOn: $gameManager.isRobotPlaying)
-                        .font(.caption)
-                        .toggleStyle(SwitchToggleStyle(tint: .blue))
-                        .frame(width: 60)
-                    
-                    Spacer()
-                    
-                    if gameManager.isRobotPlaying {
-                        Toggle("Предсказания", isOn: $gameManager.showModelPrediction)
-                            .font(.caption)
-                            .toggleStyle(SwitchToggleStyle(tint: .yellow))
-                            .frame(width: 110)
+                            .lineLimit(1)
+
                         Spacer()
+
+                        controlToggle(
+                            title: "Робот",
+                            isOn: $gameManager.isRobotPlaying,
+                            tint: .blue
+                        )
+
+                        if gameManager.isRobotPlaying {
+                            controlToggle(
+                                title: "Предск.",
+                                isOn: $gameManager.showModelPrediction,
+                                tint: .yellow
+                            )
+                        }
                     }
-                    
-                    HStack(spacing: 8) {
+
+                    HStack(spacing: 16) {
                         Button("Новая игра") {
                             gameManager.resetGame()
                         }
                         .font(.caption)
                         .foregroundColor(.red)
-                        
+
+                        Spacer()
+
                         Button("Сброс обучения") {
                             gameManager.resetTraining()
                         }
@@ -217,7 +219,7 @@ struct ContentView: View {
                     }
                 }
                 .padding(.horizontal)
-                .padding(.vertical, 8)
+                .padding(.vertical, 10)
                 .background(Color.black.opacity(0.9))
                 .padding(.bottom, 20)
             }
@@ -232,5 +234,19 @@ struct ContentView: View {
         .onChange(of: scenePhase) { newPhase in
             gameManager.handleScenePhaseChange(newPhase)
         }
+    }
+
+    private func controlToggle(title: String, isOn: Binding<Bool>, tint: Color) -> some View {
+        VStack(spacing: 4) {
+            Text(title)
+                .font(.caption2)
+                .foregroundColor(.gray)
+                .lineLimit(1)
+
+            Toggle("", isOn: isOn)
+                .labelsHidden()
+                .toggleStyle(SwitchToggleStyle(tint: tint))
+        }
+        .fixedSize()
     }
 }
